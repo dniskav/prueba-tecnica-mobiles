@@ -1,0 +1,8 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 344px);
+  justify-content: center;
+  align-items: start;
+  grid-auto-flow: dense;
+  border-collapse: collapse;
+}
