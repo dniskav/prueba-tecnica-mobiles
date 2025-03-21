@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { Header, SearchBox } from '../../components'
 import { fetchProducts } from '../../../modules/product/infrastructure/ProductApi'
 import { ProductListItem } from '../../../modules/product/domain/Product'
+import { List } from '..'
 
 export function Home() {
   const [products, setProducts] = useState<ProductListItem[]>([])
@@ -18,13 +19,17 @@ export function Home() {
       })
   }, [])
 
+  const setGridData = (products: ProductListItem[]) => {
+    setFilteredProducts(products)
+  }
+
   return (
     <>
       <Header />
 
-      <SearchBox elements={products} result={(p) => setFilteredProducts(p)} />
-      {JSON.stringify(FilteredProducts)}
-      {/* content here */}
+      <SearchBox elements={products} result={(p: ProductListItem) => setGridData(p)} />
+
+      <List items={FilteredProducts} />
     </>
   )
 }
