@@ -11,6 +11,9 @@
   outline-offset: 0;
   background-color: #fff;
 }
+.card:last-child {
+  width: 343px;
+}
 
 .card .brand {
   justify-content: flex-start;

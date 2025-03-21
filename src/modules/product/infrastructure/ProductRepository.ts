@@ -6,8 +6,8 @@ export const ProductRepository = {
    * Get all products
    * @returns {Promise<ProductListItem[]>} List of products
    */
-  getAll: async (): Promise<ProductListItem[]> => {
-    return fetchProducts()
+  getAll: async (search?: string): Promise<ProductListItem[]> => {
+    return fetchProducts(search)
   },
 
   /**

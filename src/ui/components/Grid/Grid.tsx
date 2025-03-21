@@ -5,7 +5,7 @@ import styles from './grid.module.css'
 export function Grid({ items = [] }: { items: ProductListItem[] }) {
   return (
     <div className={styles.grid}>
-      {items.length > 0 && items.map((item) => <Card key={item.id} item={item} />)}
+      {items.length > 0 && items.map((item) => <Card key={item.id + item.brand} item={item} />)}
     </div>
   )
 }
