@@ -1,16 +1,11 @@
 import { useState } from 'react'
-import { Input } from '../../../core/components'
+import { InputText } from '../../../core/components'
 import { ProductListItem } from '../../../modules/product/domain/Product'
+import styles from './searchBox.module.css'
 
 export const SearchBox = ({ elements, result }: { elements: any[]; result: any }) => {
   const [total, setTotal] = useState(0)
 
-  /**
-   * Filters elements by name and brand. If the query is empty, returns all products.
-   * @param {ProductListItem[]} products - Array of products
-   * @param {string} query - Search query
-   * @returns {ProductListItem[]} - Filtered products
-   */
   const filterProducts = (query: string): ProductListItem[] => {
     if (!query.trim()) {
       result(elements)
@@ -31,8 +26,8 @@ export const SearchBox = ({ elements, result }: { elements: any[]; result: any }
   }
 
   return (
-    <div>
-      <Input
+    <div className={styles['search-box']}>
+      <InputText
         placeholder="Search for a smartphone..."
         onChange={(e) => filterProducts(e.target.value)}
       />

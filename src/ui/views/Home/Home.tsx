@@ -21,9 +21,8 @@ export function Home() {
   return (
     <>
       <Header />
-      <section className="searchBox">
-        <SearchBox elements={products} result={(p) => setFilteredProducts(p)} />
-      </section>
+
+      <SearchBox elements={products} result={(p) => setFilteredProducts(p)} />
       {JSON.stringify(FilteredProducts)}
       {/* content here */}
     </>
