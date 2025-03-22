@@ -3,13 +3,17 @@
   height: 344px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   padding: 16px;
   box-sizing: border-box;
   outline: 1px solid black;
   outline-offset: 0;
   background-color: #fff;
+  font-weight: 300;
+  text-transform: uppercase;
+  letter-spacing: 0;
+  font-size: 12px;
 }
 .card:last-child {
   width: 343px;
@@ -20,13 +24,27 @@
   display: flex;
   flex-flow: row;
   width: 100%;
+  color: #79736d;
+  font-size: 10px;
 }
 
 .card .details {
-  justify-content: space-between;
   display: flex;
-  flex-flow: row;
   width: 100%;
+}
+
+.card .details > * {
+  display: flex;
+}
+
+.card .details {
+  display: flex;
+  flex-flow: column;
+}
+
+.card .refPrice {
+  justify-content: space-between;
+  flex-flow: row;
 }
 
 .card .img-container {
@@ -42,4 +60,15 @@
   object-fit: contain;
   width: 100%;
   height: 100%;
+}
+
+.Myruler {
+  border: 1px solid red;
+  position: absolute;
+  z-index: 100000;
+  width: 222px;
+  height: 222px;
+  top: 164px;
+  left: 64px;
+  background-color: rgba(255, 0, 0, 0.3);
 }

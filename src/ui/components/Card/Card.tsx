@@ -7,10 +7,13 @@ export function Card({ item }: { item: ProductListItem }) {
       <div className={styles['img-container']}>
         <img src={item.imageUrl} alt={item.name} />
       </div>
-      <div className={styles.brand}>{item.brand}</div>
+
       <div className={styles.details}>
-        <span>{item.name}</span>
-        <span>{item.basePrice}</span>
+        <div className={styles.brand}>{item.brand}</div>
+        <div className={styles.refPrice}>
+          <span>{item.name}</span>
+          <span>{item.basePrice}</span>
+        </div>
       </div>
     </div>
   )
