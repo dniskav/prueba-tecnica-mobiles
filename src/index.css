@@ -1,3 +1,41 @@
 :root {
   font-family: 'Inter', sans-serif;
+  font-weight: 300;
+  font-size: 12px;
+  --gray0: #79736d;
+  --gray1: #aaaaaa;
+
+  /* 🎨 Color Tokens */
+  --dl-color-bg-muted: rgba(247, 250, 252, 1);
+  --dl-color-bg-subtle: rgba(237, 242, 247, 1);
+  --dl-color-bg-default: rgba(255, 255, 255, 1);
+  --dl-color-fg-muted: rgba(74, 85, 104, 1);
+  --dl-color-fg-subtle: rgba(160, 174, 192, 1);
+  --dl-color-fg-default: rgba(0, 0, 0, 1);
+  --dl-color-default-black: rgba(0, 0, 0, 1);
+  --dl-color-default-black020: rgba(0, 0, 0, 0.2);
+  --dl-color-default-black060: rgba(0, 0, 0, 0.6);
+  --dl-color-accent-bg: rgba(195, 218, 254, 1);
+  --dl-color-accent-default: rgba(127, 156, 245, 1);
+  --dl-color-accent-onaccent: rgba(255, 255, 255, 1);
+  --dl-color-card-background: rgba(255, 255, 255, 1);
+  --dl-color-shadows-default: rgba(26, 32, 44, 1);
+  --dl-color-theme-primary1: #bf4408;
+  --dl-color-theme-primary2: #e65103;
+  --dl-color-theme-secondary1: #ffffff;
+  --dl-color-theme-secondary2: #fbf1eb;
+  --dl-color-theme-neutral-dark: #191818;
+  --dl-color-theme-neutral-light: #fbfaf9;
+  --dl-color-button_primary-background: rgba(127, 156, 245, 1);
+  --dl-color-button_primary-text: rgba(255, 255, 255, 1);
+
+  /* 🖋️ Typography */
+  --font-body: 'Inter', sans-serif;
+  --font-heading: 'STIX Two Text', serif;
+  --typography-h1-font-size: 49px;
+  --typography-h1-font-weight: 700;
+  --typography-h2-font-size: 39px;
+  --typography-h2-font-weight: 700;
+  --typography-body-font-size: 16px;
+  --typography-body-font-weight: 400;
 }

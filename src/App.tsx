@@ -1,11 +1,16 @@
+import { Route, Routes } from 'react-router-dom'
 import './App.css'
-import { Home } from './ui/views'
+import { Cart, Detail, Home, List } from './ui/views'
 
 function App() {
   return (
-    <>
-      <Home />
-    </>
+    <Routes>
+      <Route path="/" element={<Home />}>
+        <Route index element={<List />} />
+        <Route path="detail/:id" element={<Detail />} />
+        <Route path="cart" element={<Cart />} />
+      </Route>
+    </Routes>
   )
 }
 

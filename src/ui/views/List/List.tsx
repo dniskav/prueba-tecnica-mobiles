@@ -1,6 +1,7 @@
-import { ProductListItem } from '../../../modules/product/domain/Product'
 import { Grid } from '../../components/Grid/Grid'
+import { useProductStore } from '../../stores/useProductStore'
 
-export function List({ items }: { items: ProductListItem[] }) {
-  return <Grid items={items} />
+export function List() {
+  const products = useProductStore((s) => s.products)
+  return <Grid items={products} />
 }

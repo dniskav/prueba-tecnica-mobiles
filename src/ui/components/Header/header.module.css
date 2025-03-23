@@ -6,6 +6,10 @@
   padding: 28px 0;
 }
 
+.link {
+  text-decoration: none;
+}
+
 .logo {
   height: 24px;
 }

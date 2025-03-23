@@ -5,18 +5,37 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  padding: 16px;
+  padding: 16px; /* → var(--spacing-md) */
   box-sizing: border-box;
-  outline: 1px solid black;
+  outline: 1px solid black; /* → var(--color-border-default) */
   outline-offset: 0;
-  background-color: #fff;
-  font-weight: 300;
+  background-color: #fff; /* → var(--color-bg-card) */
+  font-weight: 300; /* → var(--font-weight-light) */
   text-transform: uppercase;
   letter-spacing: 0;
-  font-size: 12px;
+  font-size: 12px; /* → var(--font-size-xs) */
+
+  /* Animation */
+  position: relative;
+  overflow: hidden;
 }
+
 .card:last-child {
   width: 343px;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-color: var(--dl-color-default-black, #000); /* ✅ var(--color-overlay-dark) */
+  transform: translateY(100%);
+  transition: transform 0.3s ease-out;
+  z-index: 1;
+}
+
+.card:hover::before {
+  transform: translateY(0%);
 }
 
 .card .brand {
@@ -24,27 +43,39 @@
   display: flex;
   flex-flow: row;
   width: 100%;
-  color: #79736d;
-  font-size: 10px;
+  color: #79736d; /* → var(--color-text-muted) */
+  font-size: 10px; /* → var(--font-size-xxs) */
+  transition: color 0.3s ease;
+  position: relative;
+  z-index: 2;
+}
+
+.card:hover .brand {
+  color: #d3d3d3; /* → var(--color-text-subtle) */
 }
 
 .card .details {
   display: flex;
+  flex-flow: column;
   width: 100%;
+  position: relative;
+  z-index: 2;
+  transition: color 0.3s ease;
+  color: black; /* → var(--color-text-primary) */
+}
+
+.card:hover .details {
+  color: white; /* → var(--color-text-inverse) */
 }
 
 .card .details > * {
   display: flex;
 }
 
-.card .details {
-  display: flex;
-  flex-flow: column;
-}
-
 .card .refPrice {
   justify-content: space-between;
   flex-flow: row;
+  width: 100%;
 }
 
 .card .img-container {
@@ -55,13 +86,16 @@
   overflow: hidden;
   position: relative;
   display: flex;
+  z-index: 2;
 }
+
 .card .img-container img {
   object-fit: contain;
   width: 100%;
   height: 100%;
 }
 
+/* Debug ruler */
 .Myruler {
   border: 1px solid red;
   position: absolute;

@@ -3,6 +3,7 @@ import { Header, SearchBoxApi } from '../../components'
 import { ProductListItem } from '../../../modules/product/domain/Product'
 import { List } from '..'
 import { useProductStore } from '../../stores/useProductStore'
+import { Outlet } from 'react-router-dom'
 
 export function Home() {
   const fetchProducts = useProductStore((s) => s.fetchProducts)
@@ -28,7 +29,7 @@ export function Home() {
         result={(p: ProductListItem) => setQuery(p)}
       />
 
-      <List items={products} />
+      <Outlet />
     </>
   )
 }

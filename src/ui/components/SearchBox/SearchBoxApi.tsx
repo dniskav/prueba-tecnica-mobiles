@@ -13,7 +13,7 @@ export const SearchBoxApi = ({ quantity, result }: { quantity: number; result: a
         onChange={(e) => filterProducts(e.target.value)}
       />
 
-      <span>{quantity}</span>
+      <span className={styles.quantity}>{quantity} Results</span>
     </div>
   )
 }
