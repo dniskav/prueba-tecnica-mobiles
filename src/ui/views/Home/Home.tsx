@@ -1,21 +1,18 @@
 import { useEffect, useState } from 'react'
 import { Header, SearchBoxApi } from '../../components'
-import { fetchProducts } from '../../../modules/product/infrastructure/ProductApi'
 import { ProductListItem } from '../../../modules/product/domain/Product'
 import { List } from '..'
+import { useProductStore } from '../../stores/useProductStore'
 
 export function Home() {
-  const [products, setProducts] = useState<ProductListItem[]>([])
+  const fetchProducts = useProductStore((s) => s.fetchProducts)
   const [filter, setFilter] = useState<string | undefined>()
+  const products = useProductStore((s) => s.products)
+  const loading = useProductStore((s) => s.loading)
+  const error = useProductStore((s) => s.error)
 
   useEffect(() => {
     fetchProducts(filter)
-      .then((products) => {
-        setProducts(products)
-      })
-      .catch((error) => {
-        console.error(error)
-      })
   }, [filter])
 
   const setQuery = (query: string) => {
