@@ -1,0 +1,30 @@
+.product-details,
+.product-details > * {
+  display: flex;
+  flex-flow: column;
+  width: 100%;
+}
+
+.overview {
+  flex-flow: row;
+  max-width: 1200px;
+  margin: 0 auto;
+  height: 630px;
+}
+
+.image-container {
+  width: 510px;
+}
+
+.info-container {
+  flex: 1;
+}
+.info-container .info {
+  width: 380px;
+  height: 459px;
+}
+
+.specifications {
+}
+.similarProducts {
+}

@@ -39,3 +39,12 @@
   --typography-body-font-size: 16px;
   --typography-body-font-weight: 400;
 }
+body {
+  margin: 0;
+}
+
+body.scaled {
+  transform: scale(0.7726);
+  transform-origin: top left;
+  width: 128.4vw;
+}

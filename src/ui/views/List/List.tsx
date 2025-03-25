@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react'
 import { SearchBoxApi } from '../../components'
 import { Grid } from '../../components/Grid/Grid'
 import { useProductStore } from '../../stores/useProductStore'
-import { ProductListItem } from '../../../modules/product/domain/Product'
 
 export function List() {
   const [filter, setFilter] = useState<string | undefined>()
@@ -17,10 +16,7 @@ export function List() {
   }
   return (
     <>
-      <SearchBoxApi
-        quantity={!!filter ? products.length : 0}
-        result={(p: ProductListItem) => setQuery(p)}
-      />
+      <SearchBoxApi quantity={!!filter ? products.length : 0} result={(p: string) => setQuery(p)} />
 
       <Grid items={products} />
     </>

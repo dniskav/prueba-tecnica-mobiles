@@ -5,4 +5,12 @@
   align-items: start;
   grid-auto-flow: dense;
   border-collapse: collapse;
+  margin-top: 65px;
+}
+
+.grid > a {
+  text-decoration: none;
+}
+.grid > a:last-child > * {
+  width: 343px;
 }

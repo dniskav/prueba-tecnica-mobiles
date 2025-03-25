@@ -2,8 +2,14 @@
   border: none;
   border-bottom: 1px solid #333;
   display: block;
-  outline: none; /* Removes the blue outline */
+  outline: none;
   transition: box-shadow 0.2s ease-in-out;
+  height: 29px;
+  font-size: 16px;
+  letter-spacing: -0.5px;
+  font-weight: 200;
+  font-family: Inter, sans-serif;
+  padding-left: 0;
 }
 
 .input:focus {
