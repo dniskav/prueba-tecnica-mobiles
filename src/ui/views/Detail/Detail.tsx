@@ -2,9 +2,11 @@ import { useParams } from 'react-router-dom'
 import { useEffect } from 'react'
 import styles from './details.module.css'
 import { useProductContext } from '../../stores/ProductContext'
+import { useCurrency } from '../../../core/hooks'
 
 export function Detail() {
   const { id } = useParams()
+  const currencyFormatter = useCurrency('EUR', 'es-ES', 'code')
   const { state, getProductById, clearSelected } = useProductContext()
   const { selected } = state
 
@@ -25,8 +27,10 @@ export function Detail() {
 
         <div className={styles['info-container']}>
           <div className={styles.info}>
-            {selected?.name}
-            {selected?.basePrice}
+            <h1 className={styles.name}>{selected?.name}</h1>
+            <div className={styles.price}>From {currencyFormatter(selected?.basePrice || 0)}</div>
+
+            <div className={styles.storage}>Storage ¿HOW MUCH SPACE DO YOU NEED?</div>
           </div>
         </div>
       </section>

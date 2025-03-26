@@ -20,3 +20,14 @@
 .logo {
   height: auto;
 }
+
+.header .back-button {
+  text-decoration: none;
+  color: black;
+  display: inline-block;
+  margin: 11px 7px 0;
+}
+
+.header .icon-back {
+  margin-right: 11px;
+}
