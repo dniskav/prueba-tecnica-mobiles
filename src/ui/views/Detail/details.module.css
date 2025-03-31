@@ -101,7 +101,7 @@
 
 .storage-selector {
   display: flex;
-  gap: 1px; /* para que no se acumulen bordes dobles */
+  gap: 1px;
 }
 
 .option {
@@ -124,7 +124,7 @@
 }
 
 .selected {
-  border-color: var(--dl-color-default-black); /* borde negro sólido */
+  border-color: var(--dl-color-default-black);
 }
 
 input[type='radio'] {
@@ -160,7 +160,7 @@ input[type='radio'] {
 }
 
 .selected {
-  border: 1px solid var(--dl-color-default-black); /* Se resalta */
+  border: 1px solid var(--dl-color-default-black);
 }
 
 .square {

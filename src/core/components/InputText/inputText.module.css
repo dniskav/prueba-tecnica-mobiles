@@ -14,7 +14,7 @@
 
 .input:focus {
   border-color: #007bff;
-  box-shadow: 0 5px 6px -4px rgba(0, 123, 255, 0.3); /* Soft blue glow */
+  box-shadow: 0 5px 6px -4px rgba(0, 123, 255, 0.3);
 }
 
 .input-wrapper {

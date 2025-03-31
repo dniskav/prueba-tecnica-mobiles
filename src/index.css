@@ -5,7 +5,6 @@
   --gray0: #79736d;
   --gray1: #aaaaaa;
 
-  /* 🎨 Color Tokens */
   --dl-color-bg-muted: rgba(247, 250, 252, 1);
   --dl-color-bg-subtle: rgba(237, 242, 247, 1);
   --dl-color-bg-default: rgba(255, 255, 255, 1);
@@ -29,7 +28,6 @@
   --dl-color-button_primary-background: rgba(127, 156, 245, 1);
   --dl-color-button_primary-text: rgba(255, 255, 255, 1);
 
-  /* 🖋️ Typography */
   --font-body: 'Inter', sans-serif;
   --font-heading: 'STIX Two Text', serif;
   --typography-h1-font-size: 49px;
@@ -43,7 +41,6 @@
   --typography-body-font-weight: 200;
   --typography-body-font-weight-bold: 300;
 
-  /* Espaciado */
   --dl-layout-space-unit: 16px;
   --dl-layout-space-halfunit: 8px;
   --dl-layout-space-quarterunit: 4px;

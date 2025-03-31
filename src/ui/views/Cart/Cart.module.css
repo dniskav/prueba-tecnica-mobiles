@@ -103,7 +103,6 @@
   font-weight: 300;
 }
 
-/* Estilos base compartidos por ambos footers */
 .actionsDesktop,
 .actionsMobile {
   display: flex;
@@ -118,7 +117,6 @@
   z-index: 10;
 }
 
-/* Footer para desktop */
 .actionsDesktop {
   padding: var(--dl-layout-space-unit) calc(50% - 600px);
   display: flex;
@@ -129,7 +127,6 @@
   margin-top: 0;
 }
 
-/* Footer para mobile */
 .actionsMobile {
   padding: var(--dl-layout-space-unit) 16px;
   flex-direction: column;
@@ -147,7 +144,6 @@
   justify-content: space-between;
 }
 
-/* Excepción para cuando solo hay un botón en mobile */
 .actionsMobile:has(button:only-child) {
   flex-direction: row;
 }
@@ -179,12 +175,10 @@
   margin-top: 0;
 }
 
-/* Espacio al final del contenido para evitar que quede oculto detrás del footer fijo */
 .contentSpacer {
   height: 80px;
 }
 
-/* Media query for mobile view */
 @media (max-width: 768px) {
   .actionsDesktop {
     display: none;
