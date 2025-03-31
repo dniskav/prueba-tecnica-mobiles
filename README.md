@@ -1,54 +1,109 @@
-# React + TypeScript + Vite
+# Phone Store
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Aplicación de tienda de teléfonos móviles desarrollada con React, TypeScript y Vite.
 
-Currently, two official plugins are available:
+## Requisitos previos
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Node.js 18 o superior
+- pnpm 8 o superior
 
-## Expanding the ESLint configuration
+## Instalación
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+```bash
+# Instalar dependencias
+pnpm install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Scripts disponibles
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### Modo desarrollo
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+Para ejecutar la aplicación en modo desarrollo:
+
+```bash
+pnpm dev
+```
+
+Esto iniciará el servidor de desarrollo en [http://localhost:3000](http://localhost:3000) con recarga en caliente y apuntará a la API de desarrollo según las variables de entorno en `.env.development`.
+
+### Construir para producción
+
+Para construir la aplicación para producción:
+
+```bash
+pnpm build
+pnpm start
+```
+
+Este comando generará los archivos optimizados en la carpeta `dist` utilizando las variables de entorno de `.env.production`.
+
+### Construir para entorno de desarrollo
+
+Si necesitas generar una build de desarrollo:
+
+```bash
+pnpm build:dev
+```
+
+### Previsualizar la build
+
+Para previsualizar la build generada:
+
+```bash
+pnpm preview
+```
+
+### Servir la aplicación de producción
+
+Para construir y servir la aplicación como en producción:
+
+```bash
+pnpm serve:prod
+```
+
+Este comando construirá la aplicación con configuración de producción y la servirá en el puerto 4173.
+
+## Configuración de entornos
+
+La aplicación utiliza archivos `.env` para configurar diferentes entornos:
+
+- `.env.development`: Variables para desarrollo local
+- `.env.production`: Variables para entorno de producción
+
+Las variables disponibles son:
+
+| Variable                | Descripción                               |
+| ----------------------- | ----------------------------------------- |
+| VITE_API_KEY            | Clave de API para autenticación           |
+| VITE_API_BASE_URL       | URL base de la API                        |
+| VITE_ENABLE_CACHE       | Habilitar caché (true/false)              |
+| VITE_DEFAULT_PAGE_SIZE  | Tamaño de página predeterminado           |
+| VITE_CACHE_TIME_MINUTES | Tiempo de caché en minutos                |
+| VITE_DEBUG_MODE         | Habilitar modo de depuración (true/false) |
+
+## Características
+
+- Aplicación React con TypeScript y Vite
+- Enrutamiento con React Router
+- Gestión de estado con Context API
+- Organización de código por módulos y dominios
+- Configuración de entornos (desarrollo/producción)
+- Optimizaciones específicas por entorno
+
+## Estructura del proyecto
+
+```
+src/
+  ├── assets/           # Recursos estáticos
+  ├── core/             # Funcionalidad central y compartida
+  │   ├── components/   # Componentes reutilizables
+  │   ├── hooks/        # Hooks personalizados
+  │   └── infrastructure/ # Servicios e infraestructura
+  ├── modules/          # Módulos de dominio
+  │   ├── product/      # Módulo de productos
+  │   └── cart/         # Módulo de carrito
+  └── ui/               # Componentes de interfaz de usuario
+      ├── components/   # Componentes de UI
+      ├── stores/       # Estado global
+      └── views/        # Vistas/páginas
 ```

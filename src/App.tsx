@@ -4,17 +4,21 @@ import { Home } from './ui/views/Home/Home'
 import { Detail } from './ui/views/Detail/Detail'
 import { List } from './ui/views/List/List'
 import { Cart } from './ui/views/Cart/Cart'
+import { EnvIndicator } from './core/components/EnvIndicator/EnvIndicator'
 
 const App: React.FC = () => {
   return (
-    <Routes>
-      <Route path="/" element={<Home />}>
-        <Route index element={<List />} />
-        <Route path="detail/:id" element={<Detail />} />
-        <Route path="cart" element={<Cart />} />
-        <Route path="*" element={<Navigate to="/" replace />} />
-      </Route>
-    </Routes>
+    <>
+      <EnvIndicator />
+      <Routes>
+        <Route path="/" element={<Home />}>
+          <Route index element={<List />} />
+          <Route path="detail/:id" element={<Detail />} />
+          <Route path="cart" element={<Cart />} />
+          <Route path="*" element={<Navigate to="/" replace />} />
+        </Route>
+      </Routes>
+    </>
   )
 }
 

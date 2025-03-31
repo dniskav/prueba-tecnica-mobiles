@@ -1,4 +1,4 @@
-const API_BASE_URL = 'https://prueba-tecnica-api-tienda-moviles.onrender.com' // Base URL for the API
+import { environment } from './environment'
 
 /**
  * Custom fetch wrapper to handle API calls with authentication and error handling
@@ -7,15 +7,20 @@ const API_BASE_URL = 'https://prueba-tecnica-api-tienda-moviles.onrender.com' //
  * @returns {Promise<T>} - The parsed JSON response
  */
 export const apiFetch = async <T>(endpoint: string, options: RequestInit = {}): Promise<T> => {
-  const API_KEY = import.meta.env.VITE_API_KEY // 🔥 Load API key from Vite environment variables
+  const API_BASE_URL = environment.config.apiBaseUrl
+  const API_KEY = environment.config.apiKey
+
+  if (environment.isDevelopment) {
+    console.log(`Fetching: ${API_BASE_URL}${endpoint}`)
+  }
 
   try {
     const response = await fetch(`${API_BASE_URL}${endpoint}`, {
       ...options,
       headers: {
         'Content-Type': 'application/json',
-        'x-api-key': API_KEY, // 🔥 Include API key in every request
-        ...options.headers // Merge additional headers if provided
+        'x-api-key': API_KEY,
+        ...options.headers
       }
     })
 
@@ -26,6 +31,6 @@ export const apiFetch = async <T>(endpoint: string, options: RequestInit = {}): 
     return await response.json()
   } catch (error) {
     console.error(`API Fetch Error: ${error}`)
-    throw error // Re-throw error for handling in services
+    throw error
   }
 }
