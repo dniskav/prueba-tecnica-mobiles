@@ -6,6 +6,7 @@ import { useCurrency } from '../../../core/hooks'
 import { useProductContext } from '../../stores/productContext'
 import { Specs } from '../../components/Specs'
 import Button from '../../components/Button/Button'
+import ItemsCarrousel from '../../components/ItemsCarrousel/ItemsCarrousel'
 
 export function Detail() {
   const { id } = useParams()
@@ -145,16 +146,8 @@ export function Detail() {
           </div>
         )}
       </section>
-      <section className={styles.similarProducts}>
-        {selected.similarProducts?.length > 0 && (
-          <div className={styles.similarContainer}>
-            <h2>Productos similares</h2>
-            {/* Lista de productos similares */}
-          </div>
-        )}
-      </section>
-      <section className={styles.specifications}>s</section>
-      <section className={styles.similarProducts}>s</section>
+
+      <ItemsCarrousel items={selected.similarProducts || []} title="PRODUCTOS SIMILARES" />
 
       {JSON.stringify(selected)}
     </div>
