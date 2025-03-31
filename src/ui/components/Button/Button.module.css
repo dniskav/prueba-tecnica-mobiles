@@ -1,18 +1,27 @@
 .button {
+  width: 380px;
+  height: var(--dl-layout-space-tripleunit);
+  margin-top: var(--dl-layout-space-quadrupleunit);
   display: flex;
-  align-items: center;
-  width: 100%;
-  height: 56px;
   justify-content: center;
+  align-items: center;
   background-color: var(--dl-color-default-black);
   color: var(--dl-color-theme-secondary1);
-  border: none;
+  border: 1px solid var(--dl-color-default-black);
   cursor: pointer;
-  font-size: var(--typography-body-font-size-small);
+  font-size: var(--typography-body-font-size);
   font-weight: var(--typography-body-font-weight);
+  text-transform: uppercase;
 }
 
 .button:disabled {
-  background-color: #f3f2f2;
+  background-color: var(--dl-color-bg-subtle);
+  border: none;
   cursor: not-allowed;
+}
+
+.secondary {
+  background-color: var(--dl-color-theme-secondary1);
+  color: var(--dl-color-default-black);
+  border: 1px solid var(--dl-color-default-black);
 }

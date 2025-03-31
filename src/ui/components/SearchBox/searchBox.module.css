@@ -12,5 +12,5 @@
 }
 
 .search-box .quantity {
-  margin-top: 5px;
+  margin-top: var(--dl-layout-space-quarterunit);
 }

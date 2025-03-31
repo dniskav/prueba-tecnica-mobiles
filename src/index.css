@@ -41,10 +41,16 @@
   --typography-body-font-size: 16px;
   --typography-body-font-size-small: 12px;
   --typography-body-font-weight: 200;
+  --typography-body-font-weight-bold: 300;
 
   /* Espaciado */
   --dl-layout-space-unit: 16px;
   --dl-layout-space-halfunit: 8px;
+  --dl-layout-space-quarterunit: 4px;
+  --dl-layout-space-oneandhalfunit: 24px;
+  --dl-layout-space-doubleunit: 32px;
+  --dl-layout-space-tripleunit: 48px;
+  --dl-layout-space-quadrupleunit: 64px;
 }
 body {
   margin: 0;

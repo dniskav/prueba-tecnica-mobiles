@@ -7,7 +7,7 @@
   font-size: var(--typography-h3-font-size);
   margin-bottom: 1.5rem;
   text-transform: uppercase;
-  font-weight: var(--typography-h3-font-weight);
+  font-weight: var(--typography-body-font-weight-bold);
 }
 
 .specsTable {
@@ -18,12 +18,12 @@
 }
 
 .specLabel {
-  padding: 1rem;
+  padding: var(--dl-layout-space-unit);
   border-bottom: 1px solid var(--dl-color-default-black);
 }
 
 .specValue {
-  padding: 1rem;
+  padding: var(--dl-layout-space-unit);
   border-bottom: 1px solid var(--dl-color-default-black);
 }
 
@@ -33,12 +33,12 @@
   }
 
   .specLabel {
-    background-color: #f8f8f8;
+    background-color: var(--dl-color-theme-neutral-light);
     border-bottom: none;
-    padding-bottom: 0.5rem;
+    padding-bottom: var(--dl-layout-space-halfunit);
   }
 
   .specValue {
-    padding-top: 0.5rem;
+    padding-top: var(--dl-layout-space-halfunit);
   }
 }

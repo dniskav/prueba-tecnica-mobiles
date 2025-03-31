@@ -1,24 +1,24 @@
 .section {
-  margin: 40px 0;
+  margin: var(--dl-layout-space-unit) 0;
   max-width: 1200px;
   margin: 0 auto;
   position: relative;
-  padding-bottom: 40px;
+  padding-bottom: var(--dl-layout-space-unit);
 }
 
 .title {
-  font-size: 24px;
-  font-weight: 300;
+  font-size: var(--typography-body-font-weight-bold);
+  font-weight: var(--typography-body-font-weight-bold);
   text-transform: uppercase;
-  margin-bottom: 24px;
-  padding-left: 16px;
+  margin-bottom: var(--dl-layout-space-unit);
+  padding-left: var(--dl-layout-space-unit);
 }
 
 .carrouselContainer {
   display: flex;
   flex-flow: row nowrap;
   overflow-x: auto;
-  padding: 16px;
+  padding: var(--dl-layout-space-unit);
   max-width: 100%;
   scrollbar-width: none;
   -ms-overflow-style: none;
@@ -39,11 +39,11 @@
 
 .scrollbarTrack {
   position: absolute;
-  bottom: 20px;
-  left: 16px;
-  right: 16px;
+  bottom: var(--dl-layout-space-unit);
+  left: var(--dl-layout-space-unit);
+  right: var(--dl-layout-space-unit);
   height: 1px;
-  background-color: lightgray;
+  background-color: var(--dl-color-fg-subtle);
 }
 
 .scrollbarThumb {
@@ -52,7 +52,7 @@
   left: 0;
   height: 1px;
   width: 240px;
-  background-color: black;
+  background-color: var(--dl-color-default-black);
   cursor: pointer;
 }
 
@@ -64,5 +64,5 @@
   transform: translateX(-50%);
   width: 240px;
   height: 1px;
-  background-color: #000;
+  background-color: var(--dl-color-default-black);
 }
