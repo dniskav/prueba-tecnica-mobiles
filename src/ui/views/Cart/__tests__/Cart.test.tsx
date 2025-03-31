@@ -1,8 +1,8 @@
 import { describe, it, expect, vi } from 'vitest'
 import { screen, waitFor } from '@testing-library/react'
-import { Cart } from './Cart'
-import { renderWithProviders } from '../../../test/utils'
-import * as productContextModule from '../../stores/productContext'
+import { Cart } from '../Cart'
+import { renderWithProviders } from '../../../../test/utils'
+import * as productContextModule from '../../../stores/productContext'
 
 // Create the mock before using it
 const navigateMock = vi.fn()
@@ -17,7 +17,7 @@ vi.mock('react-router-dom', async () => {
 })
 
 // Mock for currency hook
-vi.mock('../../../core/hooks', () => ({
+vi.mock('../../../../core/hooks', () => ({
   useCurrency: () => (value: number) => `€${value.toFixed(2)}`
 }))
 

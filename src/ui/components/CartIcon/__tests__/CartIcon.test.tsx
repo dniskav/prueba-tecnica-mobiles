@@ -1,7 +1,7 @@
 import { describe, it, expect, vi } from 'vitest'
 import { render, screen } from '@testing-library/react'
-import { CartIcon } from './CartIcon'
-import * as productContextModule from '../../stores/productContext'
+import { CartIcon } from '../CartIcon'
+import * as productContextModule from '../../../stores/productContext'
 
 // Mock images
 vi.mock('/Bagicon.svg', () => ({ default: 'empty-cart-icon-url' }))
