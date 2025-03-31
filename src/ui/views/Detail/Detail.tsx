@@ -26,18 +26,18 @@ export function Detail() {
   }, [id])
 
   useEffect(() => {
-    if (selected && selected.colorOptions && selected.colorOptions.length > 0) {
-      const firstColor = selected.colorOptions[0]
+    if (!selected) return
+
+    const { colorOptions, storageOptions, basePrice } = selected
+
+    if (colorOptions?.length > 0) {
+      const firstColor = colorOptions[0]
       setSelectedColor(firstColor.hexCode)
       setSelectedImage(firstColor.imageUrl)
+    }
 
-      if (selected.storageOptions && selected.storageOptions.length > 0) {
-        // const firstOption = selected.storageOptions[0]
-        // setSelectedCapacity(firstOption.capacity)
-        // setSelectedPrice(firstOption.price)
-      } else {
-        setSelectedPrice(selected.basePrice)
-      }
+    if (storageOptions?.length === 0) {
+      setSelectedPrice(basePrice)
     }
   }, [selected])
 
@@ -75,7 +75,7 @@ export function Detail() {
               <h1 className={styles.name}>{selected.name}</h1>
               <div className={styles.price}>
                 {selectedCapacity
-                  ? currencyFormatter(selectedPrice)
+                  ? currencyFormatter(selectedPrice ?? 0)
                   : `From ${currencyFormatter(getMinPrice())}`}
               </div>
             </div>
