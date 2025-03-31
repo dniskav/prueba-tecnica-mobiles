@@ -54,8 +54,8 @@ export function Cart() {
       {/* Espacio para evitar que el contenido quede oculto detrás del footer fijo */}
       <div className={styles.contentSpacer}></div>
 
-      {/* Footer fijo con los botones de acción */}
-      <div className={styles.actions}>
+      {/* Footer para desktop */}
+      <div className={styles.actionsDesktop}>
         <Button secondary onClick={handleContinueShopping}>
           CONTINUE SHOPPING
         </Button>
@@ -68,6 +68,34 @@ export function Cart() {
             </div>
 
             <Button onClick={handlePayment}>PAY</Button>
+          </>
+        )}
+      </div>
+
+      {/* Footer para mobile */}
+      <div className={styles.actionsMobile}>
+        {cartCount > 0 ? (
+          <>
+            <div className={styles.totalContainer}>
+              <span className={styles.summaryLabel}>TOTAL</span>
+              <span className={styles.summaryValue}>{currencyFormatter(totalAmount)}</span>
+            </div>
+
+            <div className={styles.actionsMobileButtons}>
+              <Button secondary onClick={handleContinueShopping} block>
+                CONTINUE SHOPPING
+              </Button>
+
+              <Button onClick={handlePayment} block>
+                PAY
+              </Button>
+            </div>
+          </>
+        ) : (
+          <>
+            <Button secondary onClick={handleContinueShopping} block>
+              CONTINUE SHOPPING
+            </Button>
           </>
         )}
       </div>
