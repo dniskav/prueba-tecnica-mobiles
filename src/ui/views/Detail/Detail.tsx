@@ -3,10 +3,11 @@ import { useEffect, useState } from 'react'
 import styles from './details.module.css'
 
 import { useCurrency } from '../../../core/hooks'
-import { useProductContext } from '../../stores/productContext'
+import { useProductContext, CartItem } from '../../stores/productContext'
 import { Specs } from '../../components/Specs'
 import Button from '../../components/Button/Button'
 import ItemsCarrousel from '../../components/ItemsCarrousel/ItemsCarrousel'
+import { StorageOption, ColorOption } from '../../../modules/product/domain/Product'
 
 export function Detail() {
   const { id } = useParams()
@@ -15,7 +16,7 @@ export function Detail() {
   const [selectedPrice, setSelectedPrice] = useState<number | null>(null)
   const [selectedImage, setSelectedImage] = useState<string | null>(null)
   const [selectedColor, setSelectedColor] = useState<string | null>(null)
-  const { state, getProductById, clearSelected } = useProductContext()
+  const { state, getProductById, clearSelected, addToCart } = useProductContext()
   const { selected } = state
 
   useEffect(() => {
@@ -54,9 +55,25 @@ export function Detail() {
 
   const getMinPrice = () => {
     if (selected && selected.storageOptions && selected.storageOptions.length > 0) {
-      return Math.min(...selected.storageOptions.map((option) => option.price))
+      return Math.min(...selected.storageOptions.map((option: StorageOption) => option.price))
     }
     return selected?.basePrice || 0
+  }
+
+  const handleAddToCart = () => {
+    if (selected && selectedCapacity && selectedColor) {
+      const cartItem: CartItem = {
+        id: selected.id,
+        name: selected.name,
+        price: selectedPrice ?? 0,
+        imageUrl: selectedImage ?? '',
+        capacity: selectedCapacity,
+        colorName:
+          selected.colorOptions.find((c: ColorOption) => c.hexCode === selectedColor)?.name || ''
+      }
+      addToCart(cartItem)
+      console.info(`Product ${selected.id} added to cart!`)
+    }
   }
 
   if (!selected) {
@@ -85,7 +102,7 @@ export function Detail() {
               <div>Storage ¿HOW MUCH SPACE DO YOU NEED?</div>
 
               <div className={styles.capacities}>
-                {selected.storageOptions?.map(({ capacity, price }) => {
+                {selected.storageOptions?.map(({ capacity, price }: StorageOption) => {
                   return (
                     <label
                       key={capacity}
@@ -110,7 +127,7 @@ export function Detail() {
               <div>color. pick your favourite</div>
 
               <div className={styles.colorSelector}>
-                {selected.colorOptions.map((option) => (
+                {selected.colorOptions.map((option: ColorOption) => (
                   <label
                     key={option.hexCode}
                     className={`${styles.colorOption} ${
@@ -130,10 +147,11 @@ export function Detail() {
                 ))}
               </div>
               <div className={styles.colorName}>
-                {selected.colorOptions.find((c) => c.hexCode === selectedColor)?.name || ''}
+                {selected.colorOptions.find((c: ColorOption) => c.hexCode === selectedColor)
+                  ?.name || ''}
               </div>
             </div>
-            <Button onClick={() => console.log('Añadido al carrito')} disabled={!selectedCapacity}>
+            <Button onClick={handleAddToCart} disabled={!selectedCapacity}>
               AÑADIR
             </Button>
           </div>

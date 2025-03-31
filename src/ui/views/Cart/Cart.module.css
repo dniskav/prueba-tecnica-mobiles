@@ -1,0 +1,124 @@
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--dl-layout-space-unit);
+}
+
+.title {
+  font-size: var(--typography-h3-font-size);
+  font-weight: 300;
+  text-transform: uppercase;
+  margin: var(--dl-layout-space-doubleunit) 0;
+}
+
+.itemsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: var(--dl-layout-space-doubleunit);
+}
+
+.cartItem {
+  display: flex;
+  border-bottom: 1px solid var(--dl-color-bg-subtle);
+  padding-bottom: var(--dl-layout-space-doubleunit);
+}
+
+.imageContainer {
+  width: 180px;
+  height: 180px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.imageContainer img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.itemDetails {
+  flex: 1;
+  padding-left: var(--dl-layout-space-oneandhalfunit);
+  display: flex;
+  flex-direction: column;
+  gap: var(--dl-layout-space-halfunit);
+}
+
+.itemName {
+  font-size: var(--typography-body-font-size);
+  font-weight: 300;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.itemConfiguration {
+  font-size: var(--typography-body-font-size);
+  color: var(--dl-color-fg-muted);
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.itemPrice {
+  font-size: 16px;
+  margin: var(--dl-layout-space-halfunit) 0 var(--dl-layout-space-unit);
+}
+
+.removeButton {
+  align-self: flex-start;
+  background: none;
+  border: none;
+  color: var(--dl-color-theme-primary1);
+  cursor: pointer;
+  font-size: 14px;
+  padding: 0;
+  margin-top: auto;
+}
+
+.summary {
+  margin: var(--dl-layout-space-doubleunit) 0;
+  padding: 0 var(--dl-layout-space-unit);
+  display: flex;
+  flex-direction: column;
+  gap: var(--dl-layout-space-unit);
+}
+
+.summaryRow {
+  display: flex;
+  justify-content: space-between;
+  font-size: 18px;
+}
+
+.summaryLabel {
+  font-weight: 300;
+  text-transform: uppercase;
+}
+
+.summaryValue {
+  font-weight: 300;
+}
+
+.actions {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: var(--dl-layout-space-tripleunit);
+}
+
+.actions button {
+  width: 380px;
+  margin-top: 0;
+}
+
+.emptyCart {
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: var(--dl-layout-space-doubleunit);
+  font-size: 18px;
+}
+
+.emptyCart button {
+  margin-top: 0;
+}

@@ -43,7 +43,7 @@
   font-size: 24px;
   font-weight: 300;
   text-transform: uppercase;
-  margin-bottom: 11px;
+  margin-bottom: var(--dl-layout-space-halfunit);
 }
 
 .info-container .info .price {
@@ -59,7 +59,7 @@
 
 .storage .capacities {
   display: flex;
-  margin-top: 24px;
+  margin-top: var(--dl-layout-space-oneandhalfunit);
 }
 
 .storage-selector {
@@ -103,7 +103,7 @@ input[type='radio'] {
   display: flex;
   flex-direction: row;
   gap: var(--dl-layout-space-unit);
-  margin-top: 24px;
+  margin-top: var(--dl-layout-space-oneandhalfunit);
 }
 
 .colorOption {
