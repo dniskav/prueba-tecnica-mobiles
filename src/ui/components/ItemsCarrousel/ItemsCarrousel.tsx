@@ -2,6 +2,7 @@ import React from 'react'
 import styles from './ItemsCarrousel.module.css'
 import { Card } from '../Card/Card'
 import { useHorizontalScroll } from '../../../core/hooks/useHorizontalScroll'
+import { Link } from 'react-router-dom'
 
 interface ItemsCarrouselProps {
   items: any[]
@@ -20,7 +21,9 @@ const ItemsCarrousel: React.FC<ItemsCarrouselProps> = ({ items, title = 'SIMILAR
       <div className={styles.carrouselContainer} ref={scrollRef}>
         {items.map((item) => (
           <div key={item.id} className={styles.carrouselItem}>
-            <Card item={item} />
+            <Link to={`/detail/${item.id}`} key={item.id + item.brand}>
+              <Card item={item} />
+            </Link>
           </div>
         ))}
       </div>

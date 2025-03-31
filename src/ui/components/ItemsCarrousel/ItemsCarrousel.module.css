@@ -3,7 +3,7 @@
   max-width: 1200px;
   margin: 0 auto;
   position: relative;
-  padding-bottom: 40px; /* Espacio para la barra de desplazamiento */
+  padding-bottom: 40px;
 }
 
 .title {
@@ -20,11 +20,10 @@
   overflow-x: auto;
   padding: 16px;
   max-width: 100%;
-  scrollbar-width: none; /* Oculta la barra nativa en Firefox */
-  -ms-overflow-style: none; /* Oculta la barra nativa en IE/Edge */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
 
-/* Oculta la barra de desplazamiento nativa */
 .carrouselContainer::-webkit-scrollbar {
   width: 0;
   height: 0;
@@ -33,10 +32,11 @@
 
 .carrouselItem {
   flex: 0 0 auto;
-  width: 240px;
+}
+.carrouselItem a {
+  text-decoration: none;
 }
 
-/* Barra de desplazamiento personalizada */
 .scrollbarTrack {
   position: absolute;
   bottom: 20px;
@@ -53,10 +53,9 @@
   height: 1px;
   width: 240px;
   background-color: black;
-  cursor: pointer; /* Indica que es arrastrable */
+  cursor: pointer;
 }
 
-/* Línea decorativa debajo del carrusel */
 .section::after {
   content: '';
   position: absolute;

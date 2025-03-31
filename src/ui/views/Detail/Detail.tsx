@@ -148,8 +148,6 @@ export function Detail() {
       </section>
 
       <ItemsCarrousel items={selected.similarProducts || []} title="PRODUCTOS SIMILARES" />
-
-      {JSON.stringify(selected)}
     </div>
   )
 }
