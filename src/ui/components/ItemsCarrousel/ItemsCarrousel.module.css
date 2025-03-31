@@ -1,0 +1,69 @@
+.section {
+  margin: 40px 0;
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  padding-bottom: 40px; /* Espacio para la barra de desplazamiento */
+}
+
+.title {
+  font-size: 24px;
+  font-weight: 300;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+  padding-left: 16px;
+}
+
+.carrouselContainer {
+  display: flex;
+  flex-flow: row nowrap;
+  overflow-x: auto;
+  padding: 16px;
+  max-width: 100%;
+  scrollbar-width: none; /* Oculta la barra nativa en Firefox */
+  -ms-overflow-style: none; /* Oculta la barra nativa en IE/Edge */
+}
+
+/* Oculta la barra de desplazamiento nativa */
+.carrouselContainer::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  display: none;
+}
+
+.carrouselItem {
+  flex: 0 0 auto;
+  width: 240px;
+}
+
+/* Barra de desplazamiento personalizada */
+.scrollbarTrack {
+  position: absolute;
+  bottom: 20px;
+  left: 16px;
+  right: 16px;
+  height: 1px;
+  background-color: lightgray;
+}
+
+.scrollbarThumb {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 1px;
+  width: 240px;
+  background-color: black;
+  cursor: pointer; /* Indica que es arrastrable */
+}
+
+/* Línea decorativa debajo del carrusel */
+.section::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 240px;
+  height: 1px;
+  background-color: #000;
+}
