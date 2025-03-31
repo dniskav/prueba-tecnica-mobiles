@@ -1,0 +1,17 @@
+.button {
+  width: 380px;
+  height: 56px;
+  margin-top: 64px;
+  background-color: var(--dl-color-default-black);
+  color: var(--dl-color-theme-secondary1);
+  border: none;
+  cursor: pointer;
+  font-size: var(--typography-body-font-size);
+  font-weight: var(--typography-body-font-weight);
+  transition: background-color 0.3s ease;
+}
+
+.button:disabled {
+  background-color: #f3f2f2;
+  cursor: not-allowed;
+}

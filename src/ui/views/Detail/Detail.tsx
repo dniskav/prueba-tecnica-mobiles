@@ -5,14 +5,15 @@ import styles from './details.module.css'
 import { useCurrency } from '../../../core/hooks'
 import { useProductContext } from '../../stores/productContext'
 import { Specs } from '../../components/Specs'
+import Button from '../../components/Button/Button'
 
 export function Detail() {
   const { id } = useParams()
   const currencyFormatter = useCurrency('EUR', 'es-ES', 'code')
-  const [selectedCapacity, setSelectedCapacity] = useState('')
-  const [selectedPrice, setSelectedPrice] = useState(0)
+  const [selectedCapacity, setSelectedCapacity] = useState<string | null>(null)
+  const [selectedPrice, setSelectedPrice] = useState<number | null>(null)
   const [selectedImage, setSelectedImage] = useState<string | null>(null)
-  const [selectedColor, setSelectedColor] = useState('')
+  const [selectedColor, setSelectedColor] = useState<string | null>(null)
   const { state, getProductById, clearSelected } = useProductContext()
   const { selected } = state
 
@@ -31,9 +32,9 @@ export function Detail() {
       setSelectedImage(firstColor.imageUrl)
 
       if (selected.storageOptions && selected.storageOptions.length > 0) {
-        const firstOption = selected.storageOptions[0]
-        setSelectedCapacity(firstOption.capacity)
-        setSelectedPrice(firstOption.price)
+        // const firstOption = selected.storageOptions[0]
+        // setSelectedCapacity(firstOption.capacity)
+        // setSelectedPrice(firstOption.price)
       } else {
         setSelectedPrice(selected.basePrice)
       }
@@ -50,6 +51,13 @@ export function Detail() {
     setSelectedImage(options.imageUrl)
   }
 
+  const getMinPrice = () => {
+    if (selected?.storageOptions?.length > 0) {
+      return Math.min(...selected.storageOptions.map((option) => option.price))
+    }
+    return selected?.basePrice || 0
+  }
+
   if (!selected) {
     return <div className={styles.loading}>Cargando producto...</div>
   }
@@ -64,7 +72,11 @@ export function Detail() {
         <div className={styles['info-container']}>
           <div className={styles.info}>
             <h1 className={styles.name}>{selected.name}</h1>
-            <div className={styles.price}>{currencyFormatter(selectedPrice)}</div>
+            <div className={styles.price}>
+              {selectedCapacity
+                ? currencyFormatter(selectedPrice)
+                : `From ${currencyFormatter(getMinPrice())}`}
+            </div>
 
             <div className={styles.storage}>
               <div>Storage ¿HOW MUCH SPACE DO YOU NEED?</div>
@@ -81,7 +93,7 @@ export function Detail() {
                         type="radio"
                         name="storage"
                         value={capacity}
-                        checked={selectedCapacity === capacity}
+                        checked={selectedCapacity === capacity || false}
                         onChange={() => setCapacity(capacity, price)}
                       />
                       <span>{capacity}</span>
@@ -107,7 +119,7 @@ export function Detail() {
                         type="radio"
                         name="color"
                         value={option.hexCode}
-                        checked={selectedColor === option.hexCode}
+                        checked={selectedColor === option.hexCode || false}
                         onChange={() => setColor(option)}
                       />
                     </label>
@@ -116,6 +128,12 @@ export function Detail() {
                 <div className={styles.colorName}>
                   {selected.colorOptions.find((c) => c.hexCode === selectedColor)?.name || ''}
                 </div>
+
+                <Button
+                  onClick={() => console.log('Añadido al carrito')}
+                  disabled={!selectedCapacity}>
+                  AÑADIR
+                </Button>
               </div>
             </div>
           </div>
