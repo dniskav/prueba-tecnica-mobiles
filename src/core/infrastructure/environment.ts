@@ -1,15 +1,6 @@
-/**
- * Environment utility to handle different execution modes (development, production)
- */
-
-// Current environment mode
 export const ENV_MODE = import.meta.env.MODE || 'development'
-
-// Helper functions to check current environment
 export const isProduction = ENV_MODE === 'production'
 export const isDevelopment = ENV_MODE === 'development'
-
-// Log environment info (only in development)
 if (isDevelopment) {
   console.log(`Running in ${ENV_MODE} mode`)
   console.log('Environment variables:', {
@@ -18,8 +9,6 @@ if (isDevelopment) {
     debugMode: import.meta.env.VITE_DEBUG_MODE === 'true'
   })
 }
-
-// Export environment configuration for app use
 export const environment = {
   mode: ENV_MODE,
   isProduction,

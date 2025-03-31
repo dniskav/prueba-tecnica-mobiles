@@ -4,11 +4,9 @@ import styles from './cartIcon.module.css'
 import { useProductContext } from '../../stores/productContext'
 
 export function CartIcon() {
-  // Connect to the product context to get cart count
   const { state } = useProductContext()
   const cartCount = state.cart.length
 
-  // Usar el icono de carrito lleno si hay elementos en el carrito
   const iconToUse = cartCount > 0 ? cartIconFilled : cartIcon
 
   return (

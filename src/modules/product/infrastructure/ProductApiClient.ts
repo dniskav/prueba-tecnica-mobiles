@@ -1,9 +1,4 @@
 import { apiFetch } from '../../../core/infrastructure/apiFetch'
-
-/**
- * Product-specific API client that wraps the core fetch service.
- * This allows extending, modifying, or handling errors specific to the Product module.
- */
 export const productApiFetch = async <T>(
   endpoint: string,
   options: RequestInit = {}

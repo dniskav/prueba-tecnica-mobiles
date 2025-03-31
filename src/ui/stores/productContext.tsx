@@ -1,10 +1,7 @@
-// src/modules/product/context/ProductContext.tsx
 import { createContext, useReducer, useContext, ReactNode, useEffect } from 'react'
 import { ProductDetail, ProductListItem } from '../../modules/product/domain/Product'
 import { ProductService } from '../../modules/product/application/ProductService'
 import { useLocalStorage } from '../../core/hooks/useLocalStorage'
-
-// Definir la estructura del estado
 export interface ProductState {
   items: ProductListItem[]
   selected: ProductDetail | null
@@ -12,8 +9,6 @@ export interface ProductState {
   error: string | null
   cart: CartItem[]
 }
-
-// Definir la estructura de un item del carrito
 export interface CartItem {
   id: string
   name: string
@@ -22,8 +17,6 @@ export interface CartItem {
   capacity: string
   colorName: string
 }
-
-// Definir las acciones
 type ProductAction =
   | { type: 'FETCH_START' }
   | { type: 'FETCH_SUCCESS'; payload: ProductListItem[] }
@@ -34,8 +27,6 @@ type ProductAction =
   | { type: 'ADD_TO_CART'; payload: CartItem }
   | { type: 'REMOVE_FROM_CART'; payload: string }
   | { type: 'CLEAR_CART' }
-
-// Definir el tipo del contexto
 export interface ProductContextType {
   state: ProductState
   getProducts: (filter?: string) => void
@@ -45,8 +36,6 @@ export interface ProductContextType {
   removeFromCart: (id: string) => void
   clearCart: () => void
 }
-
-// Estado inicial
 const initialState: ProductState = {
   items: [],
   selected: null,
@@ -54,9 +43,7 @@ const initialState: ProductState = {
   error: null,
   cart: []
 }
-
 const ProductContext = createContext<ProductContextType | undefined>(undefined)
-
 const productReducer = (state: ProductState, action: ProductAction): ProductState => {
   switch (action.type) {
     case 'FETCH_START':
@@ -81,21 +68,15 @@ const productReducer = (state: ProductState, action: ProductAction): ProductStat
       return state
   }
 }
-
-// Proveedor del contexto
 export function ProductProvider({ children }: { children: ReactNode }) {
-  // Use localStorage to persist cart
   const [savedCart, setSavedCart] = useLocalStorage<CartItem[]>('phonestore_cart', [])
-
   const [state, dispatch] = useReducer(productReducer, {
     ...initialState,
     cart: savedCart
   })
-
   useEffect(() => {
     setSavedCart(state.cart)
   }, [state.cart, setSavedCart])
-
   const getProducts = async (filter?: string) => {
     dispatch({ type: 'FETCH_START' })
     try {
@@ -105,7 +86,6 @@ export function ProductProvider({ children }: { children: ReactNode }) {
       dispatch({ type: 'FETCH_ERROR', payload: 'Error fetching products' })
     }
   }
-
   const getProductById = async (id: string) => {
     dispatch({ type: 'FETCH_START' })
     try {
@@ -119,23 +99,18 @@ export function ProductProvider({ children }: { children: ReactNode }) {
       dispatch({ type: 'FETCH_ERROR', payload: 'Error fetching product detail' })
     }
   }
-
   const clearSelected = () => {
     dispatch({ type: 'CLEAR_DETAIL' })
   }
-
   const addToCart = (item: CartItem) => {
     dispatch({ type: 'ADD_TO_CART', payload: item })
   }
-
   const removeFromCart = (id: string) => {
     dispatch({ type: 'REMOVE_FROM_CART', payload: id })
   }
-
   const clearCart = () => {
     dispatch({ type: 'CLEAR_CART' })
   }
-
   return (
     <ProductContext.Provider
       value={{
@@ -151,8 +126,6 @@ export function ProductProvider({ children }: { children: ReactNode }) {
     </ProductContext.Provider>
   )
 }
-
-// Hook personalizado para usar el contexto
 export function useProductContext(): ProductContextType {
   const context = useContext(ProductContext)
   if (!context) {
