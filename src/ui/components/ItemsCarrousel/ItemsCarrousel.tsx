@@ -3,9 +3,10 @@ import styles from './ItemsCarrousel.module.css'
 import { Card } from '../Card/Card'
 import { useHorizontalScroll } from '../../../core/hooks/useHorizontalScroll'
 import { Link } from 'react-router-dom'
+import { ProductListItem } from '../../../modules/product/domain/Product'
 
 interface ItemsCarrouselProps {
-  items: any[]
+  items: ProductListItem[]
   title?: string
 }
 

@@ -124,7 +124,7 @@ export function ProductProvider({ children }: { children: ReactNode }) {
     try {
       const data = await ProductService.getAll(filter)
       dispatch({ type: 'FETCH_SUCCESS', payload: data })
-    } catch (err) {
+    } catch {
       dispatch({ type: 'FETCH_ERROR', payload: 'Error fetching products' })
     }
   }

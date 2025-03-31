@@ -1,7 +1,13 @@
 import { InputText } from '../../../core/components'
 import styles from './searchBox.module.css'
 
-export const SearchBoxApi = ({ quantity, result }: { quantity: number; result: any }) => {
+export const SearchBoxApi = ({
+  quantity,
+  result
+}: {
+  quantity: number
+  result: (query: string) => void
+}) => {
   const filterProducts = (query: string) => {
     result(query)
   }

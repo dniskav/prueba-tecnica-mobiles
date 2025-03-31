@@ -5,7 +5,7 @@ import { ProductListItem } from '../../../modules/product/domain/Product'
 
 // Mock para InputText (no necesario si es un componente simple)
 vi.mock('../../../core/components', () => ({
-  InputText: (props: any) => (
+  InputText: (props: React.InputHTMLAttributes<HTMLInputElement>) => (
     <input
       data-testid="input-search"
       type="text"
@@ -55,7 +55,7 @@ describe('SearchBox Component', () => {
     const mockResult = vi.fn()
     render(<SearchBox elements={mockProducts} result={mockResult} />)
 
-    const searchInput = screen.getByRole("textbox")
+    const searchInput = screen.getByRole('textbox')
 
     // Search for iPhone
     fireEvent.change(searchInput, { target: { value: 'iphone' } })
@@ -71,7 +71,7 @@ describe('SearchBox Component', () => {
     const mockResult = vi.fn()
     render(<SearchBox elements={mockProducts} result={mockResult} />)
 
-    const searchInput = screen.getByRole("textbox")
+    const searchInput = screen.getByRole('textbox')
 
     // Search for Samsung
     fireEvent.change(searchInput, { target: { value: 'samsung' } })
@@ -87,7 +87,7 @@ describe('SearchBox Component', () => {
     const mockResult = vi.fn()
     render(<SearchBox elements={mockProducts} result={mockResult} />)
 
-    const searchInput = screen.getByRole("textbox")
+    const searchInput = screen.getByRole('textbox')
 
     // Search for something that doesn't exist
     fireEvent.change(searchInput, { target: { value: 'nonexistent' } })
@@ -103,7 +103,7 @@ describe('SearchBox Component', () => {
     const mockResult = vi.fn()
     render(<SearchBox elements={mockProducts} result={mockResult} />)
 
-    const searchInput = screen.getByRole("textbox")
+    const searchInput = screen.getByRole('textbox')
 
     // First filter
     fireEvent.change(searchInput, { target: { value: 'samsung' } })

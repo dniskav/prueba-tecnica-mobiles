@@ -4,9 +4,13 @@ import { SearchBoxApi } from '../SearchBoxApi'
 
 // Mock the InputText component
 vi.mock('../../../../core/components', () => ({
-  InputText: ({ onChange, placeholder }: { onChange: any; placeholder: string }) => (
-    <input data-testid="mock-input" onChange={onChange} placeholder={placeholder} />
-  )
+  InputText: ({
+    onChange,
+    placeholder
+  }: {
+    onChange: React.ChangeEventHandler<HTMLInputElement>
+    placeholder: string
+  }) => <input data-testid="mock-input" onChange={onChange} placeholder={placeholder} />
 }))
 
 describe('SearchBoxApi Component', () => {

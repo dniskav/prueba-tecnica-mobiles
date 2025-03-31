@@ -17,7 +17,7 @@ export function List() {
   }
   return (
     <>
-      <SearchBoxApi quantity={!!filter ? items.length : 0} result={(p: string) => setQuery(p)} />
+      <SearchBoxApi quantity={filter ? items.length : 0} result={(p: string) => setQuery(p)} />
 
       <Grid items={items} />
     </>

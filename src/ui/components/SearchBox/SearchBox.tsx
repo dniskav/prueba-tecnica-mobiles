@@ -3,7 +3,13 @@ import { InputText } from '../../../core/components'
 import { ProductListItem } from '../../../modules/product/domain/Product'
 import styles from './searchBox.module.css'
 
-export const SearchBox = ({ elements, result }: { elements: any[]; result: any }) => {
+export const SearchBox = ({
+  elements,
+  result
+}: {
+  elements: ProductListItem[]
+  result: (filteredProducts: ProductListItem[]) => void
+}) => {
   const [total, setTotal] = useState(0)
 
   const filterProducts = (query: string): ProductListItem[] => {
@@ -20,7 +26,7 @@ export const SearchBox = ({ elements, result }: { elements: any[]; result: any }
     )
 
     result(res.length > 0 ? res : [])
-    setTotal(!!query ? res.length : 0)
+    setTotal(query ? res.length : 0)
 
     return res
   }

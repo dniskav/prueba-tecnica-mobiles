@@ -49,7 +49,7 @@ export function Detail() {
     setSelectedPrice(price)
   }
 
-  const setColor = (options: any) => {
+  const setColor = (options: ColorOption) => {
     setSelectedColor(options.hexCode)
     setSelectedImage(options.imageUrl)
   }

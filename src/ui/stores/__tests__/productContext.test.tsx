@@ -1,6 +1,6 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest'
 import { renderHook, act } from '@testing-library/react'
-import { ProductProvider, useProductContext } from '../productContext'
+import { ProductProvider, useProductContext, CartItem } from '../productContext'
 import { ReactNode } from 'react'
 
 // Mock for ProductService
@@ -14,7 +14,7 @@ vi.mock('../../../modules/product/application/ProductService', () => ({
 // Mock for useLocalStorage
 vi.mock('../../../core/hooks/useLocalStorage', () => ({
   useLocalStorage: () => {
-    const value: any[] = []
+    const value: CartItem[] = []
     const setValue = vi.fn()
     return [value, setValue]
   }

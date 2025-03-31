@@ -26,7 +26,7 @@ export function Cart() {
   }
 
   const handleIncreaseQuantity = (item: CartItem) => {
-    const { quantity, totalPrice, ...itemWithoutQuantity } = item
+    const { ...itemWithoutQuantity } = item
     addToCart(itemWithoutQuantity)
   }
 

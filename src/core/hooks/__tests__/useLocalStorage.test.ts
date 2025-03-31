@@ -100,7 +100,7 @@ describe('useLocalStorage', () => {
     const consoleSpy = vi.spyOn(console, 'error').mockImplementation(() => {})
 
     // Act
-    const { result } = renderHook(() => useLocalStorage('testKey', 'initialValue'))
+    renderHook(() => useLocalStorage('testKey', 'initialValue'))
 
     // Assert
     // Este test solo se enfoca en comprobar que el error es manejado correctamente
