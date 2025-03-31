@@ -35,7 +35,9 @@
   --typography-h1-font-size: 49px;
   --typography-h1-font-weight: 700;
   --typography-h2-font-size: 39px;
-  --typography-h2-font-weight: 700;
+  --typography-h2-font-size: 39px;
+  --typography-h3-font-weight: 300;
+  --typography-h3-font-size: 20px;
   --typography-body-font-size: 16px;
   --typography-body-font-size-small: 12px;
   --typography-body-font-weight: 200;
