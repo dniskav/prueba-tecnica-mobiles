@@ -2,6 +2,9 @@
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 var(--dl-layout-space-unit);
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - 200px);
 }
 
 .title {
@@ -24,8 +27,7 @@
 }
 
 .imageContainer {
-  width: 180px;
-  height: 180px;
+  height: 312px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -38,29 +40,31 @@
 }
 
 .itemDetails {
+  height: 222px;
   flex: 1;
   padding-left: var(--dl-layout-space-oneandhalfunit);
+  margin-top: 46px;
   display: flex;
   flex-direction: column;
   gap: var(--dl-layout-space-halfunit);
 }
 
 .itemName {
-  font-size: var(--typography-body-font-size);
+  font-size: var(--typography-body-font-size-small);
   font-weight: 300;
   text-transform: uppercase;
   margin: 0;
 }
 
 .itemConfiguration {
-  font-size: var(--typography-body-font-size);
+  font-size: var(--typography-body-font-size-small);
   color: var(--dl-color-fg-muted);
   margin: 0;
   text-transform: uppercase;
 }
 
 .itemPrice {
-  font-size: 16px;
+  font-size: var(--typography-body-font-size-small);
   margin: var(--dl-layout-space-halfunit) 0 var(--dl-layout-space-unit);
 }
 
@@ -70,7 +74,7 @@
   border: none;
   color: var(--dl-color-theme-primary1);
   cursor: pointer;
-  font-size: 14px;
+  font-size: var(--typography-body-font-size-small);
   padding: 0;
   margin-top: auto;
 }
@@ -86,12 +90,13 @@
 .summaryRow {
   display: flex;
   justify-content: space-between;
-  font-size: 18px;
+  font-size: var(--typography-body-font-size-small);
 }
 
 .summaryLabel {
   font-weight: 300;
   text-transform: uppercase;
+  margin-right: var(--dl-layout-space-unit);
 }
 
 .summaryValue {
@@ -101,12 +106,27 @@
 .actions {
   display: flex;
   justify-content: space-between;
-  margin-bottom: var(--dl-layout-space-tripleunit);
+  align-items: center;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: white;
+  padding: var(--dl-layout-space-unit) calc(50% - 600px);
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.05);
+  z-index: 10;
 }
 
 .actions button {
   width: 380px;
   margin-top: 0;
+}
+
+.totalContainer {
+  margin-left: 240px;
+  display: flex;
+  align-items: center;
+  font-size: var(--typography-body-font-size-small);
 }
 
 .emptyCart {
@@ -116,9 +136,14 @@
   justify-content: center;
   align-items: center;
   gap: var(--dl-layout-space-doubleunit);
-  font-size: 18px;
+  font-size: var(--typography-body-font-size-small);
 }
 
 .emptyCart button {
   margin-top: 0;
+}
+
+/* Espacio al final del contenido para evitar que quede oculto detrás del footer fijo */
+.contentSpacer {
+  height: 80px;
 }

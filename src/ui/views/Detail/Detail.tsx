@@ -1,4 +1,4 @@
-import { useParams } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import styles from './details.module.css'
 
@@ -11,6 +11,7 @@ import { StorageOption, ColorOption } from '../../../modules/product/domain/Prod
 
 export function Detail() {
   const { id } = useParams()
+  const navigate = useNavigate()
   const currencyFormatter = useCurrency('EUR', 'es-ES', 'code')
   const [selectedCapacity, setSelectedCapacity] = useState<string | null>(null)
   const [selectedPrice, setSelectedPrice] = useState<number | null>(null)
@@ -72,7 +73,7 @@ export function Detail() {
           selected.colorOptions.find((c: ColorOption) => c.hexCode === selectedColor)?.name || ''
       }
       addToCart(cartItem)
-      console.info(`Product ${selected.id} added to cart!`)
+      navigate('/cart')
     }
   }
 

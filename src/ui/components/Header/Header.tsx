@@ -17,7 +17,7 @@ export function Header() {
           <CartIcon />
         </Link>
       </nav>
-      {location.pathname !== '/' && (
+      {location.pathname.startsWith('/detail/') && (
         <a
           href="#"
           onClick={(e) => {

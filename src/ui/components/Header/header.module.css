@@ -10,11 +10,12 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: var(--dl-layout-space-unit) 0;
+  padding: 26px 0;
 }
 
 .link {
   text-decoration: none;
+  display: flex;
 }
 
 .logo {
