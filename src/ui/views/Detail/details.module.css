@@ -44,10 +44,110 @@
 }
 
 .storage {
-  margin-top: 30px;
+  margin-top: 64px;
+  text-transform: uppercase;
+  font-size: 14px;
+}
+
+.storage .capacities {
+  display: flex;
+  margin-top: 24px;
+}
+
+.storage-selector {
+  display: flex;
+  gap: 1px; /* para que no se acumulen bordes dobles */
+}
+
+.option {
+  border: 1px solid var(--dl-color-default-black020);
+  box-sizing: border-box;
+  cursor: pointer;
+  user-select: none;
+  font-weight: var(--typography-body-font-weight);
+  font-family: var(--font-body);
+  font-size: var(--typography-body-font-size);
+  text-align: center;
+  background-color: transparent;
+  transition: border-color 0.25s ease, color 0.25s ease;
+  color: var(--dl-color-default-black);
+  width: 94px;
+  height: 62px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.selected {
+  border-color: var(--dl-color-default-black); /* borde negro sólido */
+}
+
+input[type='radio'] {
+  display: none;
+}
+
+.colors {
+  display: flex;
+  flex-direction: column;
+  margin-top: 41px;
+}
+
+.colorSelector {
+  display: flex;
+  flex-direction: row;
+  gap: var(--dl-layout-space-unit);
+  margin-top: 24px;
+}
+
+.colorOption {
+  width: 24px;
+  height: 24px;
+  border: 1px solid var(--dl-color-default-black020);
+  box-sizing: border-box;
+  cursor: pointer;
+  transition: border 0.3s ease;
+  display: flex;
+  vertical-align: middle;
+  justify-content: center;
+}
+
+.colorOption input {
+  display: none;
+}
+
+.selected {
+  border: 1px solid var(--dl-color-default-black); /* Se resalta */
+}
+
+.square {
+  width: 19px;
+  height: 19px;
+  display: flex;
+  margin: auto;
+}
+
+.colorName {
+  margin-top: var(--dl-layout-space-halfunit);
+  font-weight: var(--typography-body-font-weight);
+  color: var(--dl-color-fg-default);
+  text-transform: none;
 }
 
 .specifications {
 }
 .similarProducts {
+}
+
+.productImage {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.productImage img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
 }

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { SearchBoxApi } from '../../components'
 import { Grid } from '../../components/Grid/Grid'
-import { useProductContext } from '../../stores/ProductContext'
+import { useProductContext } from '../../stores/productContext'
 
 export function List() {
   const [filter, setFilter] = useState<string | undefined>()

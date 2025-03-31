@@ -38,6 +38,10 @@
   --typography-h2-font-weight: 700;
   --typography-body-font-size: 16px;
   --typography-body-font-weight: 400;
+
+  /* Espaciado */
+  --dl-layout-space-unit: 16px;
+  --dl-layout-space-halfunit: 8px;
 }
 body {
   margin: 0;
