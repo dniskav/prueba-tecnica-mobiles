@@ -52,7 +52,7 @@ export function Detail() {
   }
 
   const getMinPrice = () => {
-    if (selected?.storageOptions?.length > 0) {
+    if (selected && selected.storageOptions && selected.storageOptions.length > 0) {
       return Math.min(...selected.storageOptions.map((option) => option.price))
     }
     return selected?.basePrice || 0
