@@ -71,11 +71,13 @@ export function Detail() {
 
         <div className={styles['info-container']}>
           <div className={styles.info}>
-            <h1 className={styles.name}>{selected.name}</h1>
-            <div className={styles.price}>
-              {selectedCapacity
-                ? currencyFormatter(selectedPrice)
-                : `From ${currencyFormatter(getMinPrice())}`}
+            <div className={styles.infoHeader}>
+              <h1 className={styles.name}>{selected.name}</h1>
+              <div className={styles.price}>
+                {selectedCapacity
+                  ? currencyFormatter(selectedPrice)
+                  : `From ${currencyFormatter(getMinPrice())}`}
+              </div>
             </div>
 
             <div className={styles.storage}>
@@ -101,41 +103,38 @@ export function Detail() {
                   )
                 })}
               </div>
+            </div>
 
-              <div className={styles.colors}>
-                <div>color. pick your favourite</div>
+            <div className={styles.colors}>
+              <div>color. pick your favourite</div>
 
-                <div className={styles.colorSelector}>
-                  {selected.colorOptions.map((option) => (
-                    <label
-                      key={option.hexCode}
-                      className={`${styles.colorOption} ${
-                        selectedColor === option.hexCode ? styles.selected : ''
-                      }`}>
-                      <div
-                        className={styles.square}
-                        style={{ backgroundColor: option.hexCode }}></div>
-                      <input
-                        type="radio"
-                        name="color"
-                        value={option.hexCode}
-                        checked={selectedColor === option.hexCode || false}
-                        onChange={() => setColor(option)}
-                      />
-                    </label>
-                  ))}
-                </div>
-                <div className={styles.colorName}>
-                  {selected.colorOptions.find((c) => c.hexCode === selectedColor)?.name || ''}
-                </div>
-
-                <Button
-                  onClick={() => console.log('Añadido al carrito')}
-                  disabled={!selectedCapacity}>
-                  AÑADIR
-                </Button>
+              <div className={styles.colorSelector}>
+                {selected.colorOptions.map((option) => (
+                  <label
+                    key={option.hexCode}
+                    className={`${styles.colorOption} ${
+                      selectedColor === option.hexCode ? styles.selected : ''
+                    }`}>
+                    <div
+                      className={styles.square}
+                      style={{ backgroundColor: option.hexCode }}></div>
+                    <input
+                      type="radio"
+                      name="color"
+                      value={option.hexCode}
+                      checked={selectedColor === option.hexCode || false}
+                      onChange={() => setColor(option)}
+                    />
+                  </label>
+                ))}
+              </div>
+              <div className={styles.colorName}>
+                {selected.colorOptions.find((c) => c.hexCode === selectedColor)?.name || ''}
               </div>
             </div>
+            <Button onClick={() => console.log('Añadido al carrito')} disabled={!selectedCapacity}>
+              AÑADIR
+            </Button>
           </div>
         </div>
       </section>

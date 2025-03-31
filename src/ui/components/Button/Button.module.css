@@ -1,14 +1,15 @@
 .button {
-  width: 380px;
+  display: flex;
+  align-items: center;
+  width: 100%;
   height: 56px;
-  margin-top: 64px;
+  justify-content: center;
   background-color: var(--dl-color-default-black);
   color: var(--dl-color-theme-secondary1);
   border: none;
   cursor: pointer;
-  font-size: var(--typography-body-font-size);
+  font-size: var(--typography-body-font-size-small);
   font-weight: var(--typography-body-font-weight);
-  transition: background-color 0.3s ease;
 }
 
 .button:disabled {
