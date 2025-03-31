@@ -7,14 +7,14 @@ import { useProductContext, CartItem } from '../../stores/productContext'
 export function Cart() {
   const navigate = useNavigate()
   const currencyFormatter = useCurrency('EUR', 'es-ES', 'code')
-  const { state, removeFromCart } = useProductContext()
+  const { state, removeFromCart, addToCart, decreaseQuantity } = useProductContext()
   const { cart } = state
 
-  const totalAmount = cart.reduce((acc: number, item: CartItem) => acc + item.price, 0)
-  const cartCount = cart.length
+  const totalAmount = cart.reduce((acc: number, item: CartItem) => acc + item.totalPrice, 0)
+  const totalItems = cart.reduce((acc: number, item: CartItem) => acc + item.quantity, 0)
 
   const handleContinueShopping = () => {
-    navigate('/list')
+    navigate('/')
   }
 
   const handlePayment = () => {
@@ -25,11 +25,20 @@ export function Cart() {
     removeFromCart(id)
   }
 
+  const handleIncreaseQuantity = (item: CartItem) => {
+    const { quantity, totalPrice, ...itemWithoutQuantity } = item
+    addToCart(itemWithoutQuantity)
+  }
+
+  const handleDecreaseQuantity = (id: string) => {
+    decreaseQuantity(id)
+  }
+
   return (
     <div className={styles.container}>
-      <h1 className={styles.title}>CART ({cartCount})</h1>
+      <h1 className={styles.title}>CART ({totalItems})</h1>
 
-      {cartCount > 0 && (
+      {cart.length > 0 && (
         <div className={styles.itemsContainer}>
           {cart.map((item: CartItem) => (
             <div key={item.id} className={styles.cartItem}>
@@ -42,6 +51,29 @@ export function Cart() {
                   {item.capacity} | {item.colorName}
                 </p>
                 <p className={styles.itemPrice}>{currencyFormatter(item.price)}</p>
+
+                <div className={styles.quantityControl}>
+                  <button
+                    className={styles.quantityButton}
+                    onClick={() => handleDecreaseQuantity(item.id)}
+                    aria-label="Decrease quantity">
+                    -
+                  </button>
+                  <span className={styles.quantityDisplay}>{item.quantity}</span>
+                  <button
+                    className={styles.quantityButton}
+                    onClick={() => handleIncreaseQuantity(item)}
+                    aria-label="Increase quantity">
+                    +
+                  </button>
+                </div>
+
+                {item.quantity > 1 && (
+                  <p className={styles.itemTotalPrice}>
+                    Total: {currencyFormatter(item.totalPrice)}
+                  </p>
+                )}
+
                 <button className={styles.removeButton} onClick={() => handleRemoveItem(item.id)}>
                   Eliminar
                 </button>
@@ -51,16 +83,14 @@ export function Cart() {
         </div>
       )}
 
-      {/* Espacio para evitar que el contenido quede oculto detrás del footer fijo */}
       <div className={styles.contentSpacer}></div>
 
-      {/* Footer para desktop */}
       <div className={styles.actionsDesktop}>
         <Button secondary onClick={handleContinueShopping}>
           CONTINUE SHOPPING
         </Button>
 
-        {cartCount > 0 && (
+        {cart.length > 0 && (
           <>
             <div className={styles.totalContainer}>
               <span className={styles.summaryLabel}>TOTAL</span>
@@ -72,9 +102,8 @@ export function Cart() {
         )}
       </div>
 
-      {/* Footer para mobile */}
       <div className={styles.actionsMobile}>
-        {cartCount > 0 ? (
+        {cart.length > 0 ? (
           <>
             <div className={styles.totalContainer}>
               <span className={styles.summaryLabel}>TOTAL</span>

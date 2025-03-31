@@ -6,7 +6,7 @@ import { ProductProvider } from './ui/stores/productContext.tsx'
 
 createRoot(document.getElementById('root')!).render(
   <ProductProvider>
-    <BrowserRouter>
+    <BrowserRouter basename={import.meta.env.BASE_URL}>
       <App />
     </BrowserRouter>
   </ProductProvider>

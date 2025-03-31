@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react'
 import styles from './details.module.css'
 
 import { useCurrency } from '../../../core/hooks'
-import { useProductContext, CartItem } from '../../stores/productContext'
+import { useProductContext } from '../../stores/productContext'
 import { Specs } from '../../components/Specs'
 import Button from '../../components/Button/Button'
 import ItemsCarrousel from '../../components/ItemsCarrousel/ItemsCarrousel'
@@ -63,8 +63,8 @@ export function Detail() {
 
   const handleAddToCart = () => {
     if (selected && selectedCapacity && selectedColor) {
-      const cartItem: CartItem = {
-        id: selected.id,
+      const cartItem = {
+        id: `${selected.id}-${selectedCapacity}-${selectedColor}`,
         name: selected.name,
         price: selectedPrice ?? 0,
         imageUrl: selectedImage ?? '',

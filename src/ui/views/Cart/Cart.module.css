@@ -79,6 +79,37 @@
   margin-top: auto;
 }
 
+.quantityControl {
+  display: flex;
+  align-items: center;
+  margin: var(--dl-layout-space-halfunit) 0;
+}
+
+.quantityButton {
+  width: 25px;
+  height: 25px;
+  border: 1px solid var(--dl-color-default-black);
+  background: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  border-radius: 0;
+  padding: 0;
+}
+
+.quantityDisplay {
+  margin: 0 10px;
+  min-width: 20px;
+  text-align: center;
+}
+
+.itemTotalPrice {
+  font-size: var(--typography-body-font-size-small);
+  margin-bottom: var(--dl-layout-space-halfunit);
+}
+
 .summary {
   margin: var(--dl-layout-space-doubleunit) 0;
   padding: 0 var(--dl-layout-space-unit);
