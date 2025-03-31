@@ -25,3 +25,7 @@
   color: var(--dl-color-default-black);
   border: 1px solid var(--dl-color-default-black);
 }
+
+.block {
+  width: 100%;
+}

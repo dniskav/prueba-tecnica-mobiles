@@ -11,12 +11,19 @@
   margin: 0 auto;
   height: 630px;
   margin-top: 26px;
+  @media (max-width: 768px) {
+    flex-flow: column;
+    height: auto;
+  }
 }
 
 .image-container {
 }
 .image-container img {
   height: 660px;
+  @media (max-width: 768px) {
+    height: 380px;
+  }
 }
 
 .info-container {
@@ -24,6 +31,9 @@
   justify-content: flex-end;
   display: flex;
   padding-top: 78px;
+  @media (max-width: 768px) {
+    padding-top: 0;
+  }
 }
 
 .infoHeader {
@@ -37,6 +47,10 @@
   display: flex;
   flex-flow: column;
   justify-content: space-between;
+  @media (max-width: 768px) {
+    width: 100%;
+    height: auto;
+  }
 }
 
 .info-container .info .name {
@@ -140,8 +154,6 @@ input[type='radio'] {
   text-transform: none;
 }
 
-.specifications {
-}
 .similarProducts {
 }
 

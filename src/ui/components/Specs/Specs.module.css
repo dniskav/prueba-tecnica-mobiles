@@ -29,16 +29,6 @@
 
 @media (max-width: 768px) {
   .specsTable {
-    grid-template-columns: 1fr;
-  }
-
-  .specLabel {
-    background-color: var(--dl-color-theme-neutral-light);
-    border-bottom: none;
-    padding-bottom: var(--dl-layout-space-halfunit);
-  }
-
-  .specValue {
-    padding-top: var(--dl-layout-space-halfunit);
+    grid-template-columns: 150px 1fr;
   }
 }

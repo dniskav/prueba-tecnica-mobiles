@@ -152,7 +152,7 @@ export function Detail() {
                   ?.name || ''}
               </div>
             </div>
-            <Button onClick={handleAddToCart} disabled={!selectedCapacity}>
+            <Button onClick={handleAddToCart} disabled={!selectedCapacity} block>
               AÑADIR
             </Button>
           </div>
