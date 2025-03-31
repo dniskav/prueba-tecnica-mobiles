@@ -2,6 +2,104 @@
 
 Aplicación de tienda de teléfonos móviles desarrollada con React, TypeScript y Vite.
 
+## Características
+
+- Listado de productos
+- Vista detallada de productos
+- Carrito de compra con manejo de cantidades
+- Almacenamiento del carrito en localStorage
+
+## Requisitos
+
+- Node.js (v18 o superior)
+- pnpm (v10 o superior)
+
+## Instalación
+
+1. Clona este repositorio
+2. Instala las dependencias:
+
+```bash
+pnpm install
+```
+
+## Ejecución
+
+Para iniciar el proyecto en modo desarrollo:
+
+```bash
+pnpm dev
+```
+
+Para construir el proyecto para producción:
+
+```bash
+pnpm build
+```
+
+Para previsualizar la versión de producción:
+
+```bash
+pnpm preview
+```
+
+## Tests
+
+El proyecto incluye tests unitarios para los componentes principales y el contexto de productos. Todos los tests están escritos en inglés y configurados para mostrar información detallada (verbose).
+
+### Ejecutar todos los tests
+
+```bash
+pnpm test
+```
+
+### Ejecutar tests en modo watch
+
+```bash
+pnpm test
+```
+
+### Ejecutar tests una sola vez
+
+```bash
+pnpm test:run
+```
+
+### Ejecutar tests con cobertura
+
+```bash
+pnpm test:coverage
+```
+
+## Estructura de pruebas
+
+El proyecto utiliza las siguientes bibliotecas para testing:
+
+- Vitest: Framework de pruebas
+- React Testing Library: Utilidades para probar componentes React
+- @testing-library/user-event: Simulación de eventos de usuario
+- jsdom: Simulación de DOM para testing
+
+### Estructura de los archivos de test
+
+- `src/test/setup.ts`: Configuración global para todos los tests
+- `src/test/utils.tsx`: Utilidades comunes para testing, incluyendo renderizado con proveedores
+- `src/ui/stores/productContext.test.tsx`: Tests del contexto de productos
+- `src/ui/views/Cart/Cart.test.tsx`: Tests del componente de carrito
+- `src/ui/views/Detail/Detail.test.tsx`: Tests del componente de detalle de producto
+
+### Convenciones de tests
+
+- Todos los tests están escritos en inglés
+- Uso del modo verbose para visualizar información detallada
+- Uso de selectores independientes del idioma para mayor robustez
+
+## Posibles mejoras
+
+- Añadir más tests para cubrir más componentes
+- Implementar tests de integración
+- Añadir tests E2E con Cypress o Playwright
+
 ## Requisitos previos
 
 - Node.js 18 o superior
@@ -80,15 +178,6 @@ Las variables disponibles son:
 | VITE_DEFAULT_PAGE_SIZE  | Tamaño de página predeterminado           |
 | VITE_CACHE_TIME_MINUTES | Tiempo de caché en minutos                |
 | VITE_DEBUG_MODE         | Habilitar modo de depuración (true/false) |
-
-## Características
-
-- Aplicación React con TypeScript y Vite
-- Enrutamiento con React Router
-- Gestión de estado con Context API
-- Organización de código por módulos y dominios
-- Configuración de entornos (desarrollo/producción)
-- Optimizaciones específicas por entorno
 
 ## Estructura del proyecto
 
