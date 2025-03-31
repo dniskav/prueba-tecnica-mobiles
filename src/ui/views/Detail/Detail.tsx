@@ -4,6 +4,7 @@ import styles from './details.module.css'
 
 import { useCurrency } from '../../../core/hooks'
 import { useProductContext } from '../../stores/productContext'
+import { useCartContext } from '../../stores/cartContext'
 import { Specs } from '../../components/Specs'
 import Button from '../../components/Button/Button'
 import ItemsCarrousel from '../../components/ItemsCarrousel/ItemsCarrousel'
@@ -17,7 +18,8 @@ export function Detail() {
   const [selectedPrice, setSelectedPrice] = useState<number | null>(null)
   const [selectedImage, setSelectedImage] = useState<string | null>(null)
   const [selectedColor, setSelectedColor] = useState<string | null>(null)
-  const { state, getProductById, clearSelected, addToCart } = useProductContext()
+  const { state, getProductById, clearSelected } = useProductContext()
+  const { addToCart } = useCartContext()
   const { selected } = state
 
   useEffect(() => {

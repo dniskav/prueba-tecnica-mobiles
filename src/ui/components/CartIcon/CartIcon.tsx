@@ -1,11 +1,11 @@
 import cartIcon from '/Bagicon.svg'
 import cartIconFilled from '/BagiconF.svg'
 import styles from './cartIcon.module.css'
-import { useProductContext } from '../../stores/productContext'
+import { useCartContext } from '../../stores/cartContext'
 
 export function CartIcon() {
-  const { state } = useProductContext()
-  const cartCount = state.cart.length
+  const { getTotalItems } = useCartContext()
+  const cartCount = getTotalItems()
 
   const iconToUse = cartCount > 0 ? cartIconFilled : cartIcon
 

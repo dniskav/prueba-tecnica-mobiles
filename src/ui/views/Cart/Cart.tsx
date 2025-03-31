@@ -2,16 +2,18 @@ import { useNavigate } from 'react-router-dom'
 import styles from './Cart.module.css'
 import Button from '../../components/Button/Button'
 import { useCurrency } from '../../../core/hooks'
-import { useProductContext, CartItem } from '../../stores/productContext'
+import { useCartContext } from '../../stores/cartContext'
+import { CartItem } from '../../../modules/cart/domain/CartItem'
 
 export function Cart() {
   const navigate = useNavigate()
   const currencyFormatter = useCurrency('EUR', 'es-ES', 'code')
-  const { state, removeFromCart, addToCart, decreaseQuantity } = useProductContext()
-  const { cart } = state
+  const { state, removeFromCart, addToCart, decreaseQuantity, getTotalAmount, getTotalItems } =
+    useCartContext()
+  const { items } = state
 
-  const totalAmount = cart.reduce((acc: number, item: CartItem) => acc + item.totalPrice, 0)
-  const totalItems = cart.reduce((acc: number, item: CartItem) => acc + item.quantity, 0)
+  const totalAmount = getTotalAmount()
+  const totalItems = getTotalItems()
 
   const handleContinueShopping = () => {
     navigate('/')
@@ -38,9 +40,9 @@ export function Cart() {
     <div className={styles.container}>
       <h1 className={styles.title}>CART ({totalItems})</h1>
 
-      {cart.length > 0 && (
+      {items.length > 0 && (
         <div className={styles.itemsContainer}>
-          {cart.map((item: CartItem) => (
+          {items.map((item: CartItem) => (
             <div key={item.id} className={styles.cartItem}>
               <div className={styles.imageContainer}>
                 <img src={item.imageUrl} alt={item.name} />
@@ -90,7 +92,7 @@ export function Cart() {
           CONTINUE SHOPPING
         </Button>
 
-        {cart.length > 0 && (
+        {items.length > 0 && (
           <>
             <div className={styles.totalContainer}>
               <span className={styles.summaryLabel}>TOTAL</span>
@@ -103,7 +105,7 @@ export function Cart() {
       </div>
 
       <div className={styles.actionsMobile}>
-        {cart.length > 0 ? (
+        {items.length > 0 ? (
           <>
             <div className={styles.totalContainer}>
               <span className={styles.summaryLabel}>TOTAL</span>
