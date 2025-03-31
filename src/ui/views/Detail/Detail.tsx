@@ -4,6 +4,7 @@ import styles from './details.module.css'
 
 import { useCurrency } from '../../../core/hooks'
 import { useProductContext } from '../../stores/productContext'
+import { Specs } from '../../components/Specs'
 
 export function Detail() {
   const { id } = useParams()
@@ -122,7 +123,9 @@ export function Detail() {
       </section>
       <section className={styles.specifications}>
         {selected.specs && (
-          <div className={styles.specsContainer}>{/* <Specs specs={selected.specs} /> */}</div>
+          <div className={styles.specsContainer}>
+            <Specs specs={selected.specs} />
+          </div>
         )}
       </section>
       <section className={styles.similarProducts}>
