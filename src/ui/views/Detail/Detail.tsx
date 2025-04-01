@@ -80,7 +80,7 @@ export function Detail() {
   }
 
   if (!selected) {
-    return <div className={styles.loading}>Cargando producto...</div>
+    return <div className={styles.loading}>Loading product...</div>
   }
 
   return (
@@ -102,7 +102,7 @@ export function Detail() {
             </div>
 
             <div className={styles.storage}>
-              <div>Storage ¿HOW MUCH SPACE DO YOU NEED?</div>
+              <div>Storage: HOW MUCH SPACE DO YOU NEED?</div>
 
               <div className={styles.capacities}>
                 {selected.storageOptions?.map(({ capacity, price }: StorageOption) => {
@@ -127,7 +127,7 @@ export function Detail() {
             </div>
 
             <div className={styles.colors}>
-              <div>color. pick your favourite</div>
+              <div>Color: Pick your favourite</div>
 
               <div className={styles.colorSelector}>
                 {selected.colorOptions.map((option: ColorOption) => (
@@ -155,7 +155,7 @@ export function Detail() {
               </div>
             </div>
             <Button onClick={handleAddToCart} disabled={!selectedCapacity} block>
-              AÑADIR
+              ADD TO CART
             </Button>
           </div>
         </div>
@@ -168,7 +168,7 @@ export function Detail() {
         )}
       </section>
 
-      <ItemsCarrousel items={selected.similarProducts || []} title="PRODUCTOS SIMILARES" />
+      <ItemsCarrousel items={selected.similarProducts || []} title="SIMILAR PRODUCTS" />
     </div>
   )
 }

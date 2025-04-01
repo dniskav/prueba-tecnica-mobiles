@@ -1,4 +1,4 @@
-// Modelo para la lista de productos
+// Model for the product list
 export interface ProductListItem {
   id: string
   brand: string
@@ -7,20 +7,20 @@ export interface ProductListItem {
   imageUrl: string
 }
 
-// Modelo para opciones de color en el detalle
+// Model for color options in detail view
 export interface ColorOption {
   name: string
   hexCode: string
   imageUrl: string
 }
 
-// Modelo para opciones de almacenamiento
+// Model for storage options
 export interface StorageOption {
   capacity: string
   price: number
 }
 
-// Modelo para especificaciones técnicas
+// Model for technical specifications
 export interface ProductSpecs {
   screen: string
   resolution: string
@@ -32,7 +32,7 @@ export interface ProductSpecs {
   screenRefreshRate: string
 }
 
-// Modelo para el detalle de producto
+// Model for product detail
 export interface ProductDetail extends ProductListItem {
   description: string
   rating: number

@@ -103,8 +103,8 @@ describe('useLocalStorage', () => {
     renderHook(() => useLocalStorage('testKey', 'initialValue'))
 
     // Assert
-    // Este test solo se enfoca en comprobar que el error es manejado correctamente
-    // y no en el valor específico, que podría variar dependiendo de la implementación
+    // This test only focuses on verifying that the error is handled correctly
+    // and not on the specific value, which may vary depending on the implementation
     expect(consoleSpy).toHaveBeenCalledWith('Error writing to localStorage', expect.any(Error))
   })
 })

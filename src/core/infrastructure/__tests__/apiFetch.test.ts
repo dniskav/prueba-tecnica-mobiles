@@ -34,7 +34,7 @@ describe('apiFetch', () => {
     await apiFetch('/test-endpoint')
 
     // Assert
-    // Verificamos solo que llamó a fetch, sin validar los parámetros exactos
+    // We only verify that fetch was called, without validating the exact parameters
     expect(mockFetch).toHaveBeenCalled()
   })
 
@@ -51,7 +51,7 @@ describe('apiFetch', () => {
     await apiFetch('/test-endpoint', customOptions)
 
     // Assert
-    // Verificamos solo que llamó a fetch, sin validar los parámetros exactos
+    // We only verify that fetch was called, without validating the exact parameters
     expect(mockFetch).toHaveBeenCalled()
   })
 
@@ -64,7 +64,7 @@ describe('apiFetch', () => {
     await apiFetch('/test-endpoint')
 
     // Assert
-    // Verificamos que se llamó a console.log, sin validar el mensaje exacto
+    // We verify that console.log was called, without validating the exact message
     expect(consoleSpy).toHaveBeenCalled()
   })
 

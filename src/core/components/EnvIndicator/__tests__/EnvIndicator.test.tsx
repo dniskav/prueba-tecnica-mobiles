@@ -3,7 +3,7 @@ import { render, screen } from '@testing-library/react'
 import { EnvIndicator } from '../EnvIndicator'
 import { environment } from '../../../infrastructure/environment'
 
-// Mockear el módulo CSS para que no interfiera en las pruebas
+// Mock the CSS module to avoid interference in tests
 vi.mock('../envIndicator.module.css', () => ({
   default: {
     container: 'container-mock',
@@ -11,7 +11,7 @@ vi.mock('../envIndicator.module.css', () => ({
   }
 }))
 
-// Mockear el environment
+// Mock the environment
 vi.mock('../../../infrastructure/environment', () => ({
   environment: {
     isProduction: false,
@@ -20,7 +20,7 @@ vi.mock('../../../infrastructure/environment', () => ({
 }))
 
 describe('EnvIndicator Component', () => {
-  // Guardar estado original del entorno y restablecer después de cada prueba
+  // Save original environment state and restore after each test
   let originalEnvironment: typeof environment
 
   beforeEach(() => {
@@ -28,7 +28,7 @@ describe('EnvIndicator Component', () => {
   })
 
   afterEach(() => {
-    // Restaurar el entorno después de cada prueba
+    // Restore the environment after each test
     vi.mocked(environment).isProduction = originalEnvironment.isProduction
     vi.mocked(environment).mode = originalEnvironment.mode
   })

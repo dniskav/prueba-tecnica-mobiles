@@ -77,7 +77,7 @@ export function Cart() {
                 )}
 
                 <button className={styles.removeButton} onClick={() => handleRemoveItem(item.id)}>
-                  Eliminar
+                  Remove
                 </button>
               </div>
             </div>

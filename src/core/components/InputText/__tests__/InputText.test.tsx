@@ -2,7 +2,7 @@ import { describe, it, expect, vi } from 'vitest'
 import { render, screen, fireEvent } from '@testing-library/react'
 import { InputText } from '../InputText'
 
-// Mockear el módulo CSS para que no interfiera en las pruebas
+// Mock the CSS module to avoid interference in tests
 vi.mock('../inputText.module.css', () => ({
   default: {
     'input-wrapper': 'input-wrapper-mock',
@@ -42,7 +42,7 @@ describe('InputText Component', () => {
 
     // Assert
     expect(handleChange).toHaveBeenCalledTimes(1)
-    // Verificar que el evento sintético contiene el valor correcto
+    // Verify that the synthetic event contains the correct value
     expect(handleChange.mock.calls[0][0].target.value).toBe('New value')
   })
 
